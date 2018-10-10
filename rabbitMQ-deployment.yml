@@ -1,0 +1,17 @@
+---
+ apiVersion: apps/v1beta1
+ kind: Deployment
+ metadata:
+   name: myrabbit
+ spec:
+   replicas: 1
+   template:
+     metadata:
+       labels:
+         app: messagequeue
+     spec:
+       containers:
+         - name: rabbitmq
+           image: rabbitmq
+           ports:
+             - containerPort: 5672
